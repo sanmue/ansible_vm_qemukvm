@@ -1,0 +1,4 @@
+---
+
+- ansible.builtin.import_playbook: playbooks/ansible-facts_playbook.yml  # noqa name[play]
+- ansible.builtin.import_playbook: playbooks/vm-qemukvm-create_playbook.yml # noqa name[play]

@@ -1,0 +1,27 @@
+---
+
+- name: Ansible facts
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: AnsibleFacts - Get env - USER
+      ansible.builtin.set_fact:
+        env_user: "{{ ansible_facts['env']['USER'] }}" # z.B.: "userid"
+
+    - name: AnsibleFacts - Get XDG_RUNTIME_DIR
+      ansible.builtin.set_fact:
+        env_user_xdg_runtime_dir: "{{ ansible_facts['env']['XDG_RUNTIME_DIR'] }}" # z.B.: "/run/user/1000"
+      # when:
+      #   - not "'shellrc' in ansible_run_tags"
+
+    - name: AnsibleFacts - Get env - HOME
+      ansible.builtin.set_fact:
+        env_home: "{{ ansible_facts['env']['HOME'] }}" # z.B.: "/var/home/userid"
+
+    - name: AnsibleFacts - Print variable - env_user
+      ansible.builtin.debug:
+        msg: "env_user: {{ env_user }}"
+
+    - name: AnsibleFacts - Print variable - env_home
+      ansible.builtin.debug:
+        msg: "env_home: {{ env_home }}"
