@@ -1,0 +1,19 @@
+<pool type='dir'>
+  <name>nvram</name>
+  <uuid>933eec10-d742-4f79-9eaa-d9abf5ebe8c5</uuid>
+  <capacity unit='bytes'>1997604388864</capacity>
+  <allocation unit='bytes'>440572698624</allocation>
+  <available unit='bytes'>1557031690240</available>
+  <source>
+  </source>
+  <target>
+    <path>/var/lib/libvirt/qemu/nvram</path>
+    <permissions>
+      <mode>0755</mode>
+      <owner>107</owner>
+      <group>107</group>
+      <label>system_u:object_r:qemu_var_run_t:s0</label>
+    </permissions>
+  </target>
+</pool>
+

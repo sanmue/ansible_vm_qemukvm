@@ -14,12 +14,20 @@ sudo virsh net-list --name | xargs -I % sh -c "sudo virsh net-dumpxml % > ${expo
 #	rm "${exportPath}/netdump_default.xml"
 #fi
 
+# -------------------------------
+# dumpxml storage pools machines:
+# -------------------------------
+echo "- dumpxml storage pools ..."
+sudo virsh pool-list --all --name # nur für Ausgabe
+sudo virsh pool-list --all --name | xargs -I % sh -c "sudo virsh pool-dumpxml % > ${exportPath}/pooldump_%.xml"
+#sudo virsh pool-list --all --name | grep -vE "default|nvram" | xargs -I % sh -c "sudo virsh pool-dumpxml % > ${exportPath}/pooldump_%.xml"
+
 # -------------------------
 # dumpxml virtual machines:
 # -------------------------
 echo "- dumpxml virtual machines..."
 sudo virsh list --all --name   # nur für Ausgabe
-sudo virsh list --all --name | xargs -I % sh -c "sudo virsh dumpxml % > ${exportPath}/dump_%.xml"
+sudo virsh list --all --name | xargs -I % sh -c "sudo virsh dumpxml % > ${exportPath}/vmdump_%.xml"
 
 # -----------------------------------
 # snapshot-dumpxml + snapshot-current
@@ -35,7 +43,7 @@ for domain in ${domainList}; do
 	snapshotList=$(sudo virsh snapshot-list "${domain}" --name --topological)   #nur Name der Snapshots, in korrekter Reihenfolge
 	if [ -z "${snapshotList}" ]; then   # wenn leer
 		echo -e "     |_snapshot:\e[0;33m keine Snapshots vorhanden\e[0;37m"
-                                 #ab hier rote Schrift             ab hier weiße Schrift
+                                # ab hier rote Schrift             ab hier weiße Schrift
 	else
 		echo "     Exportiere sortierte Namensliste der Snapshots in Datei..."
 		echo "${snapshotList}" > "snapshotList_${domain}.txt"

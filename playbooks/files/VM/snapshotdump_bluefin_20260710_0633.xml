@@ -1,12 +1,12 @@
 <domainsnapshot>
-  <name>20260705_2209</name>
+  <name>20260710_0633</name>
   <state>shutoff</state>
-  <creationTime>1783282184</creationTime>
+  <creationTime>1783658007</creationTime>
   <memory snapshot='no'/>
   <disks>
     <disk name='vda' snapshot='external' type='file'>
       <driver type='qcow2'/>
-      <source file='/var/lib/libvirt/images/bluefin.20260705_2209'/>
+      <source file='/var/lib/libvirt/images/bluefin.20260710_0633'/>
     </disk>
     <disk name='sda' snapshot='no'/>
   </disks>
