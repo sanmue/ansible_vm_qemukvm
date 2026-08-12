@@ -2,8 +2,8 @@
   <name>mnt-VM-images</name>
   <uuid>8f0a0f28-3c85-4f9d-9449-1349e9fa0014</uuid>
   <capacity unit='bytes'>1006979411968</capacity>
-  <allocation unit='bytes'>129551790080</allocation>
-  <available unit='bytes'>877427621888</available>
+  <allocation unit='bytes'>256270888960</allocation>
+  <available unit='bytes'>750708523008</available>
   <source>
   </source>
   <target>

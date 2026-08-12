@@ -1,6 +1,6 @@
 <domain type='kvm'>
-  <name>opnsense-01</name>
-  <uuid>a5da3f41-cfb4-4ba0-969d-c05801f48d2d</uuid>
+  <name>opnsense-02</name>
+  <uuid>4105f154-c0b4-4313-ad3d-a50e0aac47d2</uuid>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://freebsd.org/freebsd/15.0"/>
@@ -35,7 +35,7 @@
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2'/>
-      <source file='/var/home/sandro/mnt/VM/images/opnsense-01.20260724_1650'/>
+      <source file='/var/home/sandro/mnt/VM/images/opnsense-02.20260724_1649'/>
       <target dev='vda' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
     </disk>
@@ -60,27 +60,27 @@
       <master startport='4'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x2'/>
     </controller>
+    <controller type='pci' index='0' model='pci-root'/>
     <controller type='ide' index='0'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
     </controller>
     <controller type='virtio-serial' index='0'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
     </controller>
-    <controller type='pci' index='0' model='pci-root'/>
     <interface type='network'>
-      <mac address='52:54:00:54:ba:be'/>
+      <mac address='52:54:00:0c:7c:11'/>
       <source network='default'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
     </interface>
     <interface type='network'>
-      <mac address='52:54:00:70:42:57'/>
+      <mac address='52:54:00:5c:8b:8a'/>
       <source network='Lab-Linux-isolated'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
     </interface>
     <interface type='network'>
-      <mac address='52:54:00:bd:31:5b'/>
+      <mac address='52:54:00:ee:e3:86'/>
       <source network='pfsync'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x0a' function='0x0'/>

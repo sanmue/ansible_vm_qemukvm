@@ -1,17 +1,17 @@
 <domainsnapshot>
-  <name>20260705_1748</name>
-  <description>config single instance
-prepared pfSync interface + user</description>
+  <name>20260724_1650</name>
+  <description>- after update to  26.7
++ Migration (Nat, Rules)</description>
   <state>shutoff</state>
   <parent>
-    <name>20260629_2345</name>
+    <name>20260718_0841</name>
   </parent>
-  <creationTime>1783266535</creationTime>
+  <creationTime>1784904609</creationTime>
   <memory snapshot='no'/>
   <disks>
     <disk name='vda' snapshot='external' type='file'>
       <driver type='qcow2'/>
-      <source file='/var/home/sandro/mnt/VM/images/opnsense-01.20260705_1748'/>
+      <source file='/var/home/sandro/mnt/VM/images/opnsense-01.20260724_1650'/>
     </disk>
     <disk name='hda' snapshot='no'/>
   </disks>
@@ -52,7 +52,7 @@ prepared pfSync interface + user</description>
       <emulator>/usr/bin/qemu-system-x86_64</emulator>
       <disk type='file' device='disk'>
         <driver name='qemu' type='qcow2'/>
-        <source file='/var/home/sandro/mnt/VM/images/opnsense-01.20260629_2345'/>
+        <source file='/var/home/sandro/mnt/VM/images/opnsense-01.20260718_0841'/>
         <target dev='vda' bus='virtio'/>
         <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
       </disk>

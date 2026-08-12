@@ -1,41 +1,39 @@
 <domainsnapshot>
-  <name>20260710_0633</name>
+  <name>20260723_1704</name>
   <state>shutoff</state>
-  <creationTime>1783658007</creationTime>
+  <parent>
+    <name>20260705_1754</name>
+  </parent>
+  <creationTime>1784819077</creationTime>
   <memory snapshot='no'/>
   <disks>
     <disk name='vda' snapshot='external' type='file'>
       <driver type='qcow2'/>
-      <source file='/var/lib/libvirt/images/bluefin.20260710_0633'/>
+      <source file='/var/home/sandro/mnt/VM/images/debian-gui-01.20260723_1704'/>
     </disk>
     <disk name='sda' snapshot='no'/>
   </disks>
   <domain type='kvm'>
-    <name>bluefin</name>
-    <uuid>1068294c-bb0f-4a63-aeb7-9c66b4a115a9</uuid>
+    <name>debian-gui-01</name>
+    <uuid>793b6e55-995d-47a0-bcfd-52232c46c298</uuid>
+    <description>rsync, vim
+ssh LinuxLab</description>
     <metadata>
       <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
-        <libosinfo:os id="http://fedoraproject.org/silverblue/43"/>
+        <libosinfo:os id="http://debian.org/debian/13"/>
       </libosinfo:libosinfo>
     </metadata>
-    <memory unit='KiB'>16777216</memory>
-    <currentMemory unit='KiB'>16777216</currentMemory>
+    <memory unit='KiB'>4194304</memory>
+    <currentMemory unit='KiB'>4194304</currentMemory>
     <vcpu placement='static'>2</vcpu>
-    <os firmware='efi'>
+    <os>
       <type arch='x86_64' machine='pc-q35-10.2'>hvm</type>
-      <firmware>
-        <feature enabled='yes' name='enrolled-keys'/>
-        <feature enabled='yes' name='secure-boot'/>
-      </firmware>
-      <loader readonly='yes' secure='yes' type='pflash' format='qcow2'>/usr/share/edk2/ovmf/OVMF_CODE_4M.secboot.qcow2</loader>
-      <nvram template='/usr/share/edk2/ovmf/OVMF_VARS_4M.secboot.qcow2' templateFormat='qcow2' format='qcow2'>/var/lib/libvirt/qemu/nvram/bluefin_VARS.qcow2</nvram>
       <boot dev='hd'/>
     </os>
     <features>
       <acpi/>
       <apic/>
       <vmport state='off'/>
-      <smm state='on'/>
     </features>
     <cpu mode='host-passthrough' check='none' migratable='on'/>
     <clock offset='utc'>
@@ -53,8 +51,8 @@
     <devices>
       <emulator>/usr/bin/qemu-system-x86_64</emulator>
       <disk type='file' device='disk'>
-        <driver name='qemu' type='qcow2' discard='unmap'/>
-        <source file='/var/lib/libvirt/images/bluefin.qcow2'/>
+        <driver name='qemu' type='qcow2'/>
+        <source file='/var/home/sandro/mnt/VM/images/debian-gui-01.20260705_1754'/>
         <target dev='vda' bus='virtio'/>
         <address type='pci' domain='0x0000' bus='0x04' slot='0x00' function='0x0'/>
       </disk>
@@ -145,10 +143,16 @@
         <address type='pci' domain='0x0000' bus='0x03' slot='0x00' function='0x0'/>
       </controller>
       <interface type='network'>
-        <mac address='52:54:00:10:16:dc'/>
+        <mac address='52:54:00:0c:3e:73'/>
         <source network='default'/>
         <model type='virtio'/>
         <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
+      </interface>
+      <interface type='network'>
+        <mac address='52:54:00:3f:2b:a2'/>
+        <source network='Lab-Linux-isolated'/>
+        <model type='virtio'/>
+        <address type='pci' domain='0x0000' bus='0x07' slot='0x00' function='0x0'/>
       </interface>
       <serial type='pty'>
         <target type='isa-serial' port='0'>
@@ -171,22 +175,16 @@
       </input>
       <input type='mouse' bus='ps2'/>
       <input type='keyboard' bus='ps2'/>
-      <tpm model='tpm-crb'>
-        <backend type='emulator' version='2.0'/>
-      </tpm>
-      <graphics type='spice'>
-        <listen type='none'/>
+      <graphics type='spice' autoport='yes'>
+        <listen type='address'/>
         <image compression='off'/>
-        <gl enable='yes' rendernode='/dev/dri/by-path/pci-0000:03:00.0-render'/>
       </graphics>
       <sound model='ich9'>
         <address type='pci' domain='0x0000' bus='0x00' slot='0x1b' function='0x0'/>
       </sound>
       <audio id='1' type='spice'/>
       <video>
-        <model type='virtio' heads='1' primary='yes'>
-          <acceleration accel3d='yes'/>
-        </model>
+        <model type='virtio' heads='1' primary='yes'/>
         <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0'/>
       </video>
       <redirdev bus='usb' type='spicevmc'>
